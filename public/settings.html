@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Settings</title>
+    
+    <link href="..\static\css\bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgba(248,249,250,1);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="border-3 border-bottom">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#"><h2>AskPupkin</h2></a>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-success" type="submit">Ask!</button>
+                </form>
+                <div class="d-flex gap-2">
+                    <img src="..\static\pictures\avatar.png" alt="avatar" width="50px" height="50px"></img>
+                <div>
+                    Dr Pepper
+                    <div class="d-flex gap-2">
+                        <a href="#">Log out</a>
+                        <a href="#">Settings</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <main class="container mt-4">
+        <div class="d-flex mb-3 gap-3 align-items-start">
+            <h3 class="m-0">Settings: Dr Pepper</h3>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <form class="needs-validation" novalidate>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">Login</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Enter login" aria-label="login" required>
+                                <div class="invalid-feedback">
+                                    This login already registered!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">Email</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Enter email address" aria-label="email" required>
+                                <div class="invalid-feedback">
+                                    This email address already registered!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">NickName</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Enter nickname" aria-label="nickname" required>
+                                <div class="invalid-feedback">
+                                    This nickname already exists!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-start">
+                                <h5 class="m-0">Upload avatar</h5>
+                            </div>
+                            <form class="needs-validation" novalidate>
+                                <div class="col-9">
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <div class="border mb-2">
+                                                <img src="..\static\pictures\avatar.png" alt="avatar" class=" img-fluid">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-10">
+                                            <input class="form-control" type="file" placeholder="Choose file" aria-label="avatar" required>
+                                            <div class="invalid-feedback">
+                                                No image selected!
+                                            </div>
+                                        </div>
+                                        <div class="col-2">
+                                            <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center"></div>
+                            <div class="col-9">
+                                <button class="btn btn-outline-success mb-3" type="submit">Register!</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-4">
+                <div class="d-flex flex-wrap">
+                    <h4>Popular tags</h4>
+                    <div class="d-flex flex-wrap gap-3 mb-3">
+                        <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Perl</a>
+                        <a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Python</a>
+                        <a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">TechnoPark</a>
+                        <a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">MySQL</a>
+                        <a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">jango</a>
+                        <a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Mail.ru</a>
+                        <a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Bootstrap</a>
+                        <a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Firefox</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Best members</h4>
+                    <ul class="list-group-flush ps-0">
+                        <li class="list-group-item">
+                            <a href="#">Mr. Freeman</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Dr. House</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Queen Victoria</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Bender</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">V. Pupkin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="border-3 border-top py-3">
+        <footer class="container">
+            <p>Place sticky footer content here.</p>
+        </footer>
+    </div>
+
+    <script src="..\static\js\bootstrap.min.js"></script>
+    <script src="..\static\js\validation.js"></script>
+  </body>
+</html>

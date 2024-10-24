@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Question</title>
+    
+    <link href="..\static\css\bootstrap.min.css" rel="stylesheet">
+    <style>
+        body{
+            background-color: rgba(248,249,250,1);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="border-3 border-bottom">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+                <a class="navbar-brand" href="#"><h2>AskPupkin</h2></a>
+                <form class="d-flex" role="search">
+                  <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                  <button class="btn btn-success" type="submit">Ask!</button>
+                </form>
+                <div class="d-flex gap-3">
+                    <a href="#">Log in</a>
+                    <a href="#">Register</a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    
+
+    <main class="container mt-4">
+        <div class="row">
+            <div class="col-8">
+                <div class="row">
+                    <div class="col-3">
+                        <div class="border mb-2">
+                            <img src="..\static\pictures\avatar.png" alt="avatar" class=" img-fluid">
+                        </div>
+                        <input class="form-control w-50 mx-auto" type="number" value="5" placeholder="default">
+                    </div>
+                    <div class="col-9">
+                        <h3 class="card-title mb-3">How to build a moon park?</h3>
+                        <p class="card-text mb-3">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            Tags:
+                            <a href="#" class="card-link ms-0">black-jack</a>
+                            <a href="#" class="card-link ms-0">bender</a>
+                        </div>
+                    </div>
+                </div>
+                <span class="border-3 border-top border-bottom d-flex my-3 p-3">
+                    <div class="d-flex flex-column gap-3">
+                        <div class="card w-100" style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="border mb-2">
+                                            <img src="..\static\pictures\avatar.png" alt="avatar" class=" img-fluid">
+                                        </div>
+                                        <input class="form-control w-50 mx-auto" type="number" value="5" placeholder="default">
+    
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Correct!
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card w-100" style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-3">
+                                        <div class="border mb-2">
+                                            <img src="..\static\pictures\avatar.png" alt="avatar" class=" img-fluid">
+                                        </div>
+                                        <input class="form-control w-50 mx-auto" type="number" value="5" placeholder="default">
+    
+                                    </div>
+                                    <div class="col-9">
+                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                            <label class="form-check-label" for="defaultCheck1">
+                                                Correct!
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </span>
+                <div class="input-group">
+                    <textarea class="form-control" placeholder="Enter your answer here." rows="10"></textarea>
+                </div>
+                <button class="btn btn-outline-success my-3" type="submit">Answer</button>
+            </div>
+            <div class="col-4">
+                <div class="d-flex flex-wrap">
+                    <h4>Popular tags</h4>
+                    <div class="d-flex flex-wrap gap-3 mb-3">
+                        <a href="#" class="link-primary link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Perl</a>
+                        <a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Python</a>
+                        <a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">TechnoPark</a>
+                        <a href="#" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">MySQL</a>
+                        <a href="#" class="link-warning link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">jango</a>
+                        <a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Mail.ru</a>
+                        <a href="#" class="link-success link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Bootstrap</a>
+                        <a href="#" class="link-info link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Firefox</a>
+                    </div>
+                </div>
+                <div>
+                    <h4>Best members</h4>
+                    <ul class="list-group-flush ps-0">
+                        <li class="list-group-item">
+                            <a href="#">Mr. Freeman</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Dr. House</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Queen Victoria</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Bender</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">V. Pupkin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="border-3 border-top py-3">
+        <footer class="container">
+            <p>Place sticky footer content here.</p>
+        </footer>
+    </div>
+
+    <script src="..\static\js\bootstrap.min.js"></script>
+  </body>
+</html>
