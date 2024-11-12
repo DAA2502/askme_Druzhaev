@@ -1,0 +1,95 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Index</title>
+    
+    <link href="..\static\css\bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: rgba(248,249,250,1);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="border-3 border-bottom">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container">
+              <a class="navbar-brand" href="{% url 'index' %}"><h2>AskPupkin</h2></a>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-success" type="submit">
+                        <a href="{% url 'ask' %}" class="page-link">Ask!</a>
+                    </button>
+                </form>
+                
+                {% block user %}
+                {% if user.nickname == "#" %}
+                {% include 'layouts/nonauthorized.html' %}
+                {% else %}
+                {% include 'layouts/authorized.html' %}
+                {% endif %}
+                {% endblock %}
+
+            </div>
+            </div>
+          </nav>
+    </div>
+
+    <main class="container mt-4">
+
+        {% block title %}
+        {% endblock %}
+        
+        <div class="row">
+            <div class="col-8">
+
+            {% block content %}
+            {% endblock %}
+
+            </div>
+            <div class="col-4">
+                <div class="d-flex flex-wrap">
+                    <h4>Popular tags</h4>
+                    <div class="d-flex flex-wrap gap-3 mb-3">
+                        {% for tag_name, tag_color in tags %}
+                        <a href="{% url 'tag' tag_name %}" class="link-{{ tag_color }} link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">{{ tag_name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div>
+                    <h4>Best members</h4>
+                    <ul class="list-group-flush ps-0">
+                        <li class="list-group-item">
+                            <a href="#">Mr. Freeman</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Dr. House</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Queen Victoria</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">Bender</a>
+                        </li>
+                        <li class="list-group-item">
+                            <a href="#">V. Pupkin</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="border-3 border-top py-3">
+        <footer class="container">
+            <p>Place footer content here.</p>
+        </footer>
+    </div>
+
+    <script src="..\static\js\bootstrap.min.js"></script>
+  </body>
+</html>

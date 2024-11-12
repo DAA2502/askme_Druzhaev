@@ -1,0 +1,92 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}
+<div class="d-flex mb-3 gap-3 align-items-center">
+    <h3 class="m-0">Register</h3>
+</div>
+{% endblock %}
+
+{% block content %}
+<form class="needs-validation" novalidate>
+                    <div class="d-flex flex-column gap-3">
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">Login</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Enter login" aria-label="login" required>
+                                <div class="invalid-feedback">
+                                    This login already registered!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">Email</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Enter email address" aria-label="email" required>
+                                <div class="invalid-feedback">
+                                    This email address already registered!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">NickName</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Enter nickname" aria-label="nickname" required>
+                                <div class="invalid-feedback">
+                                    This nickname already exists!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">Password</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Enter password" aria-label="password" required>
+                                <div class="invalid-feedback">
+                                    Enter some password!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">Repeat password</h5>
+                            </div>
+                            <div class="col-4">
+                                <input class="form-control" type="text" placeholder="Repeat password" aria-label="repeat" required>
+                                <div class="invalid-feedback">
+                                    Wrong password!
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center">
+                                <h5 class="m-0">Upload avatar</h5>
+                            </div>
+                            <form class="needs-validation" novalidate>
+                                <div class="col-7">
+                                    <input class="form-control" type="file" placeholder="Choose file" aria-label="avatar" required>
+                                    <div class="invalid-feedback">
+                                        No image selected!
+                                    </div>
+                                </div>
+                                <div class="col-2">
+                                    <button class="btn btn-outline-primary" type="submit">Upload</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="row">
+                            <div class="col-3 d-flex align-items-center"></div>
+                            <div class="col-9">
+                                <button class="btn btn-outline-success mb-3" type="submit">Register!</button>
+                            </div>
+                        </div>
+                    </div>
+</form>
+{% endblock %}

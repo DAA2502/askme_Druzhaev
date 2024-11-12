@@ -1,0 +1,30 @@
+{% load static %}
+
+<div class="card w-100" style="width: 18rem;">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-3">
+                <div class="border mb-2">
+                    <img src="{% static 'img\avatar.png' %}" alt="avatar" class=" img-fluid">
+                </div>
+                <input class="form-control w-50 mx-auto" type="number" value="5" placeholder="default">
+
+            </div>
+            <div class="col-9">
+                <h5 class="card-title">
+                    <a href="{% url 'question' question.id %}" class="card-link">{{ question.title }}</a>
+                </h5>
+                <p class="card-text">{{ question.text }}</p>
+                <div class="d-flex gap-5">
+                    <a href="#" class="card-link">Answers(3)</a>
+                    <div class="d-flex flex-wrap gap-2">
+                        Tags:   
+                        {% for tag in question.tags %}
+                        <a href="{% url 'tag' tag %}" class="card-link ms-0">{{ tag }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

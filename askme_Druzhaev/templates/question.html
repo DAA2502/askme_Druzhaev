@@ -1,0 +1,37 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+                <div class="row">
+                    <div class="col-3">
+                        <div class="border mb-2">
+                            <img src="{% static 'img\avatar.png' %}" alt="avatar" class=" img-fluid">
+                        </div>
+                        <input class="form-control w-50 mx-auto" type="number" value="5" placeholder="default">
+                    </div>
+                    <div class="col-9">
+                        <h3 class="card-title mb-3">{{ question.title }}</h3>
+                        <p class="card-text mb-3">{{ question.text }}</p>
+                        <div class="d-flex flex-wrap gap-2">
+                            Tags:
+                            {% for tag in question.tags %}
+                            <a href="{% url 'tag' tag %}" class="card-link ms-0">{{ tag }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <span class="border-3 border-top border-bottom d-flex my-3 p-3">
+                    <div class="d-flex flex-column gap-3">
+                        
+                        {% for answer in answers %}
+                            {% include 'layouts/answer.html' %}
+                        {% endfor %}
+                        {% include 'layouts/pagination.html' %}
+
+                    </div>
+                </span>
+                <div class="input-group">
+                    <textarea class="form-control" placeholder="Enter your answer here." rows="10"></textarea>
+                </div>
+                <button class="btn btn-outline-success my-3" type="submit">Answer</button>
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+
+{% block title %}
+    <div class="d-flex mb-3 gap-3 align-items-center">
+        <h3>Questions</h3>
+        <a href="{% url 'hot' %}">Hot questions</a>
+    </div>
+{% endblock %}
+
+{% block content %}
+                <div class="d-flex flex-column gap-3">
+                    {% for question in questions %}
+                        {% include 'layouts/card_question.html' %}
+                    {% endfor %}
+                    {% include 'layouts/pagination.html' %}
+                </div>
+{% endblock %}

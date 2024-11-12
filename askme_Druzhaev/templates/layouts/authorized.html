@@ -1,0 +1,11 @@
+{% load static %}
+
+<div class="d-flex gap-2">
+    <img src="{% static 'img\avatar.png' %}" alt="avatar" width="50px" height="50px"></img>
+<div>
+    {{ user.nickname }}
+    <div class="d-flex gap-2">
+        <a href="#">Log out</a>
+        <a href="{% url 'settings' %}">Settings</a>
+    </div>
+</div>
