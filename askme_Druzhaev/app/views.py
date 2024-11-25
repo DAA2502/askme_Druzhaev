@@ -27,8 +27,7 @@ def index(request):
         request, 
         'index.html', 
         context = {'user': user, 'tags': popular_tags, 
-                   'questions': page.object_list, 'questionlikes': questionLikes,
-                   'page_obj': page}
+                   'questions': page.object_list, 'page_obj': page}
         )
  
 def hot(request):
