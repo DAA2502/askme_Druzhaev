@@ -32,12 +32,12 @@ class QuestionManager(models.Manager):
     
     def order_by_date(self):
         return self.order_by('-created_at').annotate(num_answers = Count('answer'))
+    
+    def order_by_rating(self):
+        return self.order_by('-rating').annotate(num_answers = Count('answer'))
 
     def with_tag(self, id_t):
         return self.filter(tags = id_t).annotate(num_answers = Count('answer'))
-    
-    def with_rating(self):
-        return self.annotate(rating = 'questionlikes')
 
 class Question(models.Model):
     question_title = models.CharField(max_length=255)
@@ -54,19 +54,12 @@ class Question(models.Model):
         return self.question_title
     
 
-class QuestionLikeManager(models.Manager):
-    def getRating(self, q_id):
-        rating = self.filter(question_id = q_id).values_list('rating', flat=True)
-        return sum(rating)
-
 class QuestionLike(models.Model):
     user_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
     question_id = models.ForeignKey(Question, on_delete=models.CASCADE)
     rating = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)
-
-    objects = QuestionLikeManager()
 
     class Meta:
         unique_together = ('user_id', 'question_id')
@@ -92,11 +85,6 @@ class Answer(models.Model):
                 self.question_id.question_title + '_at_' +
                 str(self.changed_at.strftime('%Y-%m-%d %H:%M:%S')))
     
-    
-class AnswerLikeManager(models.Manager):
-    def getRating(self, a_id):
-        rating = self.filter(answer_id = a_id).values_list('rating', flat=True)
-        return sum(rating)
 
 class AnswerLike(models.Model):
     user_id = models.ForeignKey(Profile, on_delete=models.CASCADE)
@@ -104,8 +92,6 @@ class AnswerLike(models.Model):
     rating = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
     changed_at = models.DateTimeField(auto_now=True)
-
-    objects = AnswerLikeManager()
 
     class Meta:
         unique_together = ('user_id', 'answer_id')

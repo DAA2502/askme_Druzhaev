@@ -32,7 +32,7 @@ def index(request):
         )
  
 def hot(request):
-    questions = Question.objects.order_by('-rating')
+    questions = Question.objects.order_by_rating()
     page = paginator(questions, request)
     return render(
        request, 
