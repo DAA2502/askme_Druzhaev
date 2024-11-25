@@ -43,7 +43,8 @@ class Command(BaseCommand):
 
         questions = [models.Question(question_title = f'Question_{i+1}',
                                      question_text = f'Some text in question_{i+1}',
-                                     user_id = profiles[random.randint(0, len(profiles) - 1)])
+                                     user_id = profiles[random.randint(0, len(profiles) - 1)],
+                                     rating = random.randint(-50, 100))
                                      for i in range(ratio * 10)]
         models.Question.objects.bulk_create(questions, ratio)
 
@@ -72,7 +73,8 @@ class Command(BaseCommand):
         
         answers = [models.Answer(answer_text = 'This is an answer on question.',
                                  user_id = profiles[random.randint(0, len(profiles) - 1)],
-                                 question_id = questions[random.randint(0, len(questions) - 1)])
+                                 question_id = questions[random.randint(0, len(questions) - 1)],
+                                 rating = random.randint(-10, 40))
                                  for i in range(ratio * 100)]
         models.Answer.objects.bulk_create(answers, ratio)
         print(f'Added {ratio*100} records in table \'Answers\'')

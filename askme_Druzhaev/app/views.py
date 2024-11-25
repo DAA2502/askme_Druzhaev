@@ -8,6 +8,7 @@ popular_tags = [
     ('django', 'info'), ('Mail.ru', 'warning'), ('Bootstrap', 'success'), ('FireFox', 'info')
 ]
 
+#user=list()
 user = Profile.objects.all()[0]
 questions = Question.objects.with_answers()
 questionLikes = QuestionLike.objects.all()
@@ -31,6 +32,7 @@ def index(request):
         )
  
 def hot(request):
+    questions = Question.objects.order_by('-rating')
     page = paginator(questions, request)
     return render(
        request, 
@@ -51,15 +53,14 @@ def tag(request, tag_name):
     )
 
 def question(request, question_id):
-    answers = Answer.objects.on_question(question_id)
-    answerLikes = AnswerLike.objects.all()
+    answers = Answer.objects.on_question(question_id).order_by('-rating')
     page = paginator(answers, request, 3)
     return render(
         request,
         'question.html',
         context = {'user': user, 'tags': popular_tags, 
                    'question': questions[question_id - 1], 'answers': page.object_list, 
-                   'answerlikes': answerLikes, 'page_obj': page}
+                   'page_obj': page}
     )
 
 def ask(request):
