@@ -12,14 +12,14 @@
             </div>
             <div class="col-9">
                 <h5 class="card-title">
-                    <a href="{% url 'question' question.id %}" class="card-link">{{ question.title }}</a>
+                    <a href="{% url 'question' question.id %}" class="card-link">{{ question.question_title }}</a>
                 </h5>
-                <p class="card-text">{{ question.text }}</p>
+                <p class="card-text">{{ question.question_text }}</p>
                 <div class="d-flex gap-5">
-                    <a href="#" class="card-link">Answers(3)</a>
+                    <a href="#" class="card-link">Answers({{ question.num_answers }})</a>
                     <div class="d-flex flex-wrap gap-2">
                         Tags:   
-                        {% for tag in question.tags %}
+                        {% for tag in question.tags.all %}
                         <a href="{% url 'tag' tag %}" class="card-link ms-0">{{ tag }}</a>
                         {% endfor %}
                     </div>

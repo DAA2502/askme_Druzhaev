@@ -1,40 +1,16 @@
 from django.shortcuts import render
 from django.core.paginator import Paginator
+from .models import *
 
-
-user = {
-    'nickname': '#',
-    'email': '#',
-    'password': '#'
-}
 
 popular_tags = [
     ('Perl', 'success'), ('Python', 'primary'), ('TechnoPark', 'warning'), ('MySQL', 'danger'),
     ('django', 'info'), ('Mail.ru', 'warning'), ('Bootstrap', 'success'), ('FireFox', 'info')
 ]
 
-tags = []
-for i in popular_tags:
-    tags.append(i[0])
-
-questions = []
-for i in range(30):
-    questions.append({
-        'title': 'title ' + str(i),
-        'id': i,
-        'text': 'text' + str(i),
-        'tags': tags
-    })
-
-answers = []
-for i in range(20):
-    answers.append({
-        'nickname': 'User' + str(i),
-        'text': 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa aaaaaaa Some text from User' + str(i)
-    })
-
-hotQuestions = questions.copy()
-hotQuestions.reverse()
+user = Profile.objects.all()[0]
+questions = Question.objects.with_answers()
+questionLikes = QuestionLike.objects.all()
 
 
 def paginator(objects_list, request, per_page = 5):
@@ -44,35 +20,46 @@ def paginator(objects_list, request, per_page = 5):
     return page
 
 def index(request):
+    questions = Question.objects.order_by_date()
     page = paginator(questions, request)
     return render(
         request, 
         'index.html', 
-        context = {'user': user, 'tags': popular_tags, 'questions': page.object_list, 'page_obj': page}
+        context = {'user': user, 'tags': popular_tags, 
+                   'questions': page.object_list, 'questionlikes': questionLikes,
+                   'page_obj': page}
         )
-
+ 
 def hot(request):
     page = paginator(questions, request)
     return render(
-        request, 
-        'hot.html', 
-        context = {'user': user, 'tags': popular_tags, 'questions': page.object_list, 'page_obj': page}
-        )
+       request, 
+       'hot.html', 
+       context = {'user': user, 'tags': popular_tags, 
+                  'questions': page.object_list, 'page_obj': page}
+       )
 
 def tag(request, tag_name):
+    questions = Question.objects.with_tag(Tag.objects.get_tag_id(tag_name))
     page = paginator(questions, request)
     return render(
         request,
         'tags.html',
-        context = {'user': user, 'tags': popular_tags, 'tag_name': tag_name, 'questions': page.object_list, 'page_obj': page}
+        context = {'user': user, 'tags': popular_tags, 
+                   'tag_name': tag_name, 'questions': page.object_list, 
+                   'page_obj': page}
     )
 
 def question(request, question_id):
+    answers = Answer.objects.on_question(question_id)
+    answerLikes = AnswerLike.objects.all()
     page = paginator(answers, request, 3)
     return render(
         request,
         'question.html',
-        context = {'user': user, 'tags': popular_tags, 'question': questions[question_id], 'answers': page.object_list, 'page_obj': page}
+        context = {'user': user, 'tags': popular_tags, 
+                   'question': questions[question_id - 1], 'answers': page.object_list, 
+                   'answerlikes': answerLikes, 'page_obj': page}
     )
 
 def ask(request):

@@ -30,8 +30,8 @@
                     </button>
                 </form>
                 
-                {% block user %}
-                {% if user.nickname == "#" %}
+                {% block profile %}
+                {% if user.user.username == "#" %}
                 {% include 'layouts/nonauthorized.html' %}
                 {% else %}
                 {% include 'layouts/authorized.html' %}
